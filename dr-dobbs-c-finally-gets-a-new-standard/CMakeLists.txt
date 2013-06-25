@@ -6,8 +6,6 @@ add_definitions( -Wall -pedantic -ggdb -O0 )
 
 set( CMAKE_REQUIRED_FLAGS -std=c1x )
 
-include( CheckTypeSize )
-check_type_size( "_Bool" C11_BOOL )
 
 include( CheckIncludeFiles )
-check_include_files( threads.h HAVE_THREADS_H REQUIRED )
+check_include_files( threads.h HAVE_THREADS_H )
