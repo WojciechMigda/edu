@@ -89,8 +89,3 @@ return 0;
 }" HAVE_STATIC_ASSERT )
 
 ##################################################
-
-include( CheckIncludeFiles )
-check_include_files( threads.h HAVE_THREADS_H )
-
-add_executable( stdc_version stdc_version.c )
