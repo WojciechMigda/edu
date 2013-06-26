@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 2.8.3 )
 
-add_definitions( -O0 -ggdb -std=c++0x )
+add_definitions( -O2 -ggdb -std=c++0x )
 
 ################################################################################
 
