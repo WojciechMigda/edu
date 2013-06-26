@@ -32,9 +32,9 @@ class MessageCollection
 private:
 
 public:
-virtual void add(std::shared_ptr<Message> message){};
+    virtual void add(std::shared_ptr<Message> message){};
 
-virtual ~MessageCollection(){}
+    virtual ~MessageCollection(){}
 };
 
 
