@@ -32,7 +32,7 @@
 #include "Message.hpp"
 
 template <class T>
-class TimelineAdapter : public iTimeline, public T
+class TimelineAdapter : public ITimeline, public T
 {
 public:
     explicit TimelineAdapter(std::shared_ptr<MessageCollection> messageCollection)
@@ -44,9 +44,9 @@ public:
     virtual ~TimelineAdapter(){}
 
 private:
-    virtual void publish(std::shared_ptr<Message> message)
+    virtual void publish(std::shared_ptr<Message> && message)
     {
-        T::publish(message);
+        T::publish(std::move(message));
     }
 
     virtual void serialize(SerializedTimeline & placeholder)

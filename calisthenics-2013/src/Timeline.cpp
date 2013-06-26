@@ -34,7 +34,7 @@ Timeline::Timeline(std::shared_ptr<MessageCollection> messageCollection)
     ;
 }
 
-void Timeline::publish(std::shared_ptr<Message> message)
+void Timeline::publish(std::shared_ptr<Message> && message)
 {
     messageCollection->add(message);
 }

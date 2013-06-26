@@ -36,7 +36,7 @@ public:
 
     explicit Timeline(std::shared_ptr<MessageCollection> messageCollection);
 
-    void publish(std::shared_ptr<Message> message);
+    void publish(std::shared_ptr<Message> && message);
 
     void serialize(SerializedTimeline & placeholder);
 

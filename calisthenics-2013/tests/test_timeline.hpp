@@ -57,12 +57,12 @@ void testPublishAddsMessageToCollection(void)
     MessageCollectionMock               *mock = new MessageCollectionMock;
     std::shared_ptr<MessageCollection>  messageCollection(mock);
     TimelineAdapter<Timeline>           timeline(messageCollection);
-    iTimeline                           *i_timeline_p = &timeline;
+    ITimeline                           *iTimeline = &timeline;
     std::shared_ptr<Message>            message(new Message);
 
     EXPECT_CALL(*mock, add(message)).Times(1);
 
-    i_timeline_p->publish(message);
+    iTimeline->publish(std::move(message));
 
     TS_ASSERT(testing::Mock::VerifyAndClearExpectations(mock));
 }

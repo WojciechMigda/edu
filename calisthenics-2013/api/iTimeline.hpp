@@ -38,15 +38,15 @@
 #include "Message.hpp"
 #include "SerializedTimeline.hpp"
 
-class iTimeline
+class ITimeline
 {
 private:
-    iTimeline & operator=(const iTimeline &);
+    ITimeline & operator=(const ITimeline &);
 public:
-    virtual void publish(std::shared_ptr<Message> message) = 0;
+    virtual void publish(std::shared_ptr<Message> && message) = 0;
     virtual void serialize(SerializedTimeline & placeholder) = 0;
 
-    virtual ~iTimeline(){}
+    virtual ~ITimeline(){}
 
 };
 
