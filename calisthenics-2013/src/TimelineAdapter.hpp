@@ -26,16 +26,18 @@
 #define TIMELINEADAPTER_HPP_
 
 #include <memory>
+#include <utility>
 
 #include "iTimeline.hpp"
 #include "SerializedTimeline.hpp"
 #include "Message.hpp"
+#include "iMessageCollection.hpp"
 
 template <class T>
 class TimelineAdapter : public ITimeline, public T
 {
 public:
-    explicit TimelineAdapter(std::shared_ptr<MessageCollection> messageCollection)
+    explicit TimelineAdapter(std::shared_ptr<IMessageCollection> messageCollection)
     :
         T(messageCollection)
     {

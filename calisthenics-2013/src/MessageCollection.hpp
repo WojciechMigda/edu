@@ -1,10 +1,10 @@
 /*******************************************************************************
- * Copyright (c) 2013 Wojciech Migda
+ * Copyright (c) 2013, Wojciech Migda
  * All rights reserved
  * Distributed under the terms of the GNU LGPL v3
  *******************************************************************************
  *
- * Filename: Timeline.hpp
+ * Filename: MessageCollection.hpp
  *
  * Description:
  *      description
@@ -17,27 +17,25 @@
  * --------
  * Date         Who  Ticket     Description
  * ----------   ---  ---------  ------------------------------------------------
- * 2013-06-27   wm              Initial version
+ * 2013-06-26   wm              Initial version
  *
  ******************************************************************************/
 
-#include "Message.hpp"
-#include "MessageCollection.hpp"
-#include "SerializedTimeline.hpp"
+#ifndef MESSAGECOLLECTION_HPP_
+#define MESSAGECOLLECTION_HPP_
 
+#include "Message.hpp"
 #include <memory>
 
-class Timeline
+class MessageCollection
 {
 private:
-    std::shared_ptr<MessageCollection> messageCollection;
 
-public:
+protected:
+    void add(std::shared_ptr<Message> message){};
 
-    explicit Timeline(std::shared_ptr<MessageCollection> messageCollection);
-
-    void publish(std::shared_ptr<Message> && message);
-
-    void serialize(SerializedTimeline & placeholder);
-
+    ~MessageCollection(){}
 };
+
+
+#endif /* MESSAGECOLLECTION_HPP_ */

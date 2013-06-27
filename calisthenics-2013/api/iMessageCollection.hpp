@@ -4,7 +4,7 @@
  * Distributed under the terms of the GNU LGPL v3
  *******************************************************************************
  *
- * Filename: Timeline.cpp
+ * Filename: iMessageCollection.hpp
  *
  * Description:
  *      description
@@ -21,25 +21,28 @@
  *
  ******************************************************************************/
 
+/*
+ *  Interface class Checklist:
+ *  ==========================
+ *  [ ] Methods are abstract: virtual method() = 0;
+ *  [ ] No ctor is defined
+ *  [ ] Destructor is not abstract: virtual ~dtor();
+ *  [ ] Copy operator is private and undefined: T& operator=(const T &);
+ */
 
+#ifndef IMESSAGECOLLECTION_HPP_
+#define IMESSAGECOLLECTION_HPP_
+
+#include "Message.hpp"
 #include <memory>
-#include "iMessageCollection.hpp"
-#include "Timeline.hpp"
-#include "SerializedTimeline.hpp"
 
-Timeline::Timeline(std::shared_ptr<IMessageCollection> messageCollection)
-:
-    messageCollection(messageCollection)
+class IMessageCollection
 {
-    ;
-}
+private:
+    IMessageCollection & operator=(const IMessageCollection &);
+public:
+    virtual void add(std::shared_ptr<Message> && message) = 0;
+    virtual ~IMessageCollection(){};
+};
 
-void Timeline::publish(std::shared_ptr<Message> && message)
-{
-    messageCollection->add(std::move(message));
-}
-
-void Timeline::serialize(SerializedTimeline & placeholder)
-{
-    ;
-}
+#endif /* IMESSAGECOLLECTION_HPP_ */
